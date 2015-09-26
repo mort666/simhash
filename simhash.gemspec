@@ -21,10 +21,10 @@ spec = Gem::Specification.new do |s|
   s.test_files        = Dir["test/**/test_*.rb"]
   s.extensions        = ["ext/string_hashing/extconf.rb"] 
   
-  spec.add_dependency "activesupport"
-  spec.add_dependency "unicode"
+  s.add_dependency "activesupport"
+  s.add_dependency "unicode"
 
-  spec.add_development_dependency "bundler", "~> 1.6"
-  spec.add_development_dependency "minitest"
-  spec.add_development_dependency "rake"
+  s.add_development_dependency "bundler", "~> 1.6"
+  s.add_development_dependency "minitest"
+  s.add_development_dependency "rake"
 end
