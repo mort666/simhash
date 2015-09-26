@@ -21,19 +21,10 @@ spec = Gem::Specification.new do |s|
   s.test_files        = Dir["test/**/test_*.rb"]
   s.extensions        = ["ext/string_hashing/extconf.rb"] 
   
-  if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
-    s.specification_version = 3
+  spec.add_dependency "activesupport"
+  spec.add_dependency "unicode"
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<unicode>, [">= 0.3.1"])
-      s.add_runtime_dependency(%q<activesupport>)      
-    else
-      s.add_dependency(%q<unicode>, [">= 0.3.1"])
-      s.add_dependency(%q<activesupport>)
-    end
-  else
-    s.add_dependency(%q<unicode>, [">= 0.3.1"])
-    s.add_dependency(%q<activesupport>)
-  end
+  spec.add_development_dependency "bundler", "~> 1.6"
+  spec.add_development_dependency "minitest"
+  spec.add_development_dependency "rake"
 end
