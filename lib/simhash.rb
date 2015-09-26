@@ -20,7 +20,23 @@ module Simhash
     /(\s|\d|\W|\302\240| *— *|[«»…\-–—]| )+/u
   end
   
-  
+  # Compare calculates the Hamming distance between two 64-bit integers
+  #
+  # Currently, this is calculated using the Kernighan method [1]. Other methods
+  # exist which may be more efficient and are worth exploring at some point
+  #
+  # [1] http://graphics.stanford.edu/~seander/bithacks.html#CountBitsSetKernighan
+  def self.compare(a, b)
+    v = a ^ b
+    c = 0
+    while v != 0 do
+      v &= v - 1
+      c += 1
+    end
+
+    return c
+  end
+
   def self.hash(tokens, options={})
     hashbits = options[:hashbits] || 64
     hashing_method = options[:hashing_method] || DEFAULT_STRING_HASH_METHOD
@@ -48,7 +64,8 @@ module Simhash
     stop_sentenses = options[:stop_sentenses]
     tokens.each do |token|
       # cutting punctuation (\302\240 is unbreakable space)
-      token = token.gsub(PUNCTUATION_REGEXP, ' ') if !options[:preserve_punctuation]
+      # Moved up to string class
+      # token = token.gsub(PUNCTUATION_REGEXP, ' ') if !options[:preserve_punctuation]
       
       token = Unicode::downcase(token.strip)
       

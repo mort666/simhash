@@ -1,7 +1,7 @@
 # encoding: utf-8
 require './test/helper'
 
-class SimhashStringTest < Test::Unit::TestCase
+class SimhashStringTest < MiniTest::Test
   def test_string_method
     assert_equal "In the beginning was the Word".simhash(:hashbits => 64).to_s, "17095628911399577086"
   end
@@ -14,6 +14,11 @@ class SimhashStringTest < Test::Unit::TestCase
     assert_equal "In the".simhash(:split_by => ""), Simhash.hash(["I", "n", " ", "t", "h", "e"])
   end
   
+  def test_punctuation
+    assert_equal "This is a test-run".simhash(:hashbits => 64), "This is a test run".simhash(:hashbits => 64)
+    assert "This is a test-run".simhash(:hashbits => 64, preserve_punctuation: true) != "This is a test run".simhash(:hashbits => 64, preserve_punctuation: true)
+  end
+
   def test_hashing
     assert_equal "Word".hash_vl(64).to_i, 10958914953375318724
   end

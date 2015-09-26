@@ -1,6 +1,6 @@
 require 'rake'
 require 'rake/testtask'
-require 'rake/rdoctask'
+require 'rdoc/task'
 
 $LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
 require 'simhash'
@@ -23,7 +23,7 @@ end
 
 desc 'Build the gemspec.'
 task :gemspec do |t|
-  exec 'gem build simhash.gemspec'
+  exec 'gem build mort666-simhash.gemspec'
 end
 
 desc "Print a list of the files to be put into the gem"
