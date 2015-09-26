@@ -24,6 +24,7 @@ spec = Gem::Specification.new do |s|
   s.add_dependency "activesupport"
   s.add_dependency "unicode"
 
+  s.add_development_dependency "rake-compiler"
   s.add_development_dependency "bundler", "~> 1.6"
   s.add_development_dependency "minitest"
   s.add_development_dependency "rake"
