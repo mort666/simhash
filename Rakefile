@@ -11,6 +11,8 @@ task :default => [:compile, :test]
 
 Rake::ExtensionTask.new('string_hashing')
 
+Rake::Task[:test].prerequisites << :compile
+
 desc 'Test the simhash gem'
 Rake::TestTask.new(:test) do |t|
   t.libs << '.'
