@@ -3,10 +3,11 @@ require 'minitest/autorun'
 require 'unicode'
 
 require "lib/simhash"
-require "lib/string"
-require "lib/integer"
+require "lib/simhash/string"
+require "lib/simhash/integer"
+
 begin
-  require "string_hashing" 
+  require "string_hashing"
 rescue LoadError
   nil
 end

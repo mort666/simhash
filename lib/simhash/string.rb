@@ -2,7 +2,7 @@ class String
   def simhash(options={})
     split_by = options.delete(:split_by) || " "
 
-    # Do the punctuation clean before the split.. 
+    # Do the punctuation clean before the split..
     # You could argue this is not preserving the meaning doing so actually preserves the edge case where a hyphen is removed
     # resulting hash does not match the same string with a space in there before the split
     if options[:preserve_punctuation]
@@ -11,7 +11,7 @@ class String
       Simhash.hash(self.gsub(Simhash::PUNCTUATION_REGEXP, ' ') .split(split_by), options)
     end
   end
-  
+
   def hash_vl_rb(length)
     return 0 if self == ""
 

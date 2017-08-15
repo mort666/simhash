@@ -23,7 +23,7 @@ end
 desc 'Start an IRB session with all necessary files required.'
 task :shell do |t|
   chdir File.dirname(__FILE__)
-  exec 'irb -I lib/ -I lib/simhash -I lib/string -I lib/integer -r rubygems'
+  exec 'irb -I lib/ -I lib/simhash -I lib/simhash/string -I lib/simhash/integer -r rubygems'
 end
 
 desc 'Build the gemspec.'
