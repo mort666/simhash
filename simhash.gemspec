@@ -9,7 +9,7 @@ end.flatten
 
 spec = Gem::Specification.new do |s|
   s.name              = "mort666_simhash"
-  s.version           = "0.2.7"
+  s.version           = "0.2.8"
   s.author            = ["Alex Gusev", "Stephen Kapp"]
   s.email             = ["alex.gusev@bookmate.ru", "skapp@cortexinsight.com"]
   s.homepage          = "http://github.com/mort666/simhash"
@@ -19,8 +19,8 @@ spec = Gem::Specification.new do |s|
   s.files             = include_files - exclude_files
   s.require_path      = "lib"
   s.test_files        = Dir["test/**/test_*.rb"]
-  s.extensions        = ["ext/string_hashing/extconf.rb"] 
-  
+  s.extensions        = ["ext/string_hashing/extconf.rb"]
+
   s.add_dependency "activesupport"
   s.add_dependency "unicode"
 
